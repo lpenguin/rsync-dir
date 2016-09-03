@@ -30,6 +30,9 @@ def rsync_dir(host, host_dir, user):
     if not host_dir:
         host_dir = path.basename(current_dir)
 
+    if not current_dir.endswith('/'):
+        current_dir += '/'
+
     try:
         out = rsync(to_host=host,
                     from_dir=current_dir,
